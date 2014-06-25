@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 '''Scrabble tile counter.
 
+Returns neat statistics about the tiles that are still left in the game.
+The respective commands allow you to keep track of the tiles played so far,
+as well as remove tiles that have been entered in error.
+The count command runs the statistics
+
 Usage:
   scrabble_letter_counter.py add <tiles>
   scrabble_letter_counter.py remove <tiles>
@@ -47,7 +52,7 @@ def getLetterFrequencies(tiles_on_board):
     num_all = sum(x for x in letter_freq.itervalues())
     num_vovels = sum([letter_freq[x] for x in letter_freq if x in 'aeiuoy'])
 
-    print '\n', num_all, 'tiles left'
+    print num_all, 'tiles left'
     print float(num_vovels)/float((num_all)) * 100, 'percent are vovels'
 
     for k in sorted(letter_freq, key=letter_freq.get, reverse=True):
